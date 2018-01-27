@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
 # install requirements
 COPY src/requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
+RUN pip3 install --upgrade watson-developer-cloud
+#RUN pip3 install --ignore-installed six watson-developer-cloud
 
 # set /app as working directory
 WORKDIR /app
