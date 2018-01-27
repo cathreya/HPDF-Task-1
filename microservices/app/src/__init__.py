@@ -1,10 +1,14 @@
-from flask import Flask
+from flask import Flask,request, render_template, make_response
+from flask import abort, send_file, redirect, url_for, session
+from flask import json
+from flask_script import Manager
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required
+import requests
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "potato cannon"
 
-# This line adds the hasura example routes form the hasura.py file.
-# Delete these two lines, and delete the file to remove them from your project
-from .hasura import hasura_examples
-app.register_blueprint(hasura_examples)
 
 from .server import *
